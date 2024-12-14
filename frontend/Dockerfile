@@ -2,7 +2,7 @@ FROM node:16-alpine as builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci --no-audit --no-fund
-COPY . .
+COPY . ./
 RUN npm run build
 
 FROM nginx:alpine as runner
