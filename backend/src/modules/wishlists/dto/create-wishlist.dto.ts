@@ -20,7 +20,7 @@ export class CreateWishlistDto {
 
   @IsArray()
   @IsNumber({}, { each: true })
-  itemId: number[];
+  itemsId: number[];
 
   @IsOptional()
   @ValidateIf((wishDto) => wishDto.description !== '')

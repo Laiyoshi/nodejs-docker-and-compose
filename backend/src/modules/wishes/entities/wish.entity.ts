@@ -47,16 +47,15 @@ export class Wish {
   @IsPositive()
   price: number;
 
-  @Column()
+  @Column({default: 0})
   @IsNumber({ maxDecimalPlaces: 2 })
   raised: number;
 
   @Column()
-  @IsString()
   @Length(1, 1024)
   description: string;
 
-  @Column()
+  @Column({default: 0})
   @IsDecimal()
   copied: number;
 

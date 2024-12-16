@@ -4,6 +4,7 @@ export class CreateOfferDto {
   @IsNumber()
   itemId: number;
 
+  @IsNumber()
   @IsNumber({ maxDecimalPlaces: 2 })
   @IsPositive()
   amount: number;

@@ -21,7 +21,7 @@ export class WishlistsService {
     createWishlistDto: CreateWishlistDto,
   ): Promise<Wishlist> {
     const user = await this.usersService.findOneById(id);
-    const wishes = await this.wishesService.findMany(createWishlistDto.itemId);
+    const wishes = await this.wishesService.findMany(createWishlistDto.itemsId);
 
     return this.wishlistRepository.save({
       ...createWishlistDto,
@@ -60,9 +60,9 @@ export class WishlistsService {
       );
     }
 
-    if (updateWishlistDto.itemId) {
-      const { itemId, ...restDto } = updateWishlistDto;
-      const wishes = await this.wishesService.findMany(itemId);
+    if (updateWishlistDto.itemsId) {
+      const { itemsId, ...restDto } = updateWishlistDto;
+      const wishes = await this.wishesService.findMany(itemsId);
       wishlist.items.push(...wishes);
       await this.wishlistRepository.save(wishlist);
       await this.wishlistRepository.update(id, restDto);

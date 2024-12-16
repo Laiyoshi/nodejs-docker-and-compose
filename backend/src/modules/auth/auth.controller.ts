@@ -4,7 +4,7 @@ import { TToken, TUser } from 'src/types/type';
 import { SignUpDto } from './dto/sing-up.dto';
 import { LocalAuthGuard } from './guards/local-auth.guard';
 
-@Controller('auth')
+@Controller()
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 

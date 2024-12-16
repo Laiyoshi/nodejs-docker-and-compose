@@ -16,7 +16,7 @@ export class UsersService {
     private readonly hashService: HashService,
   ) {}
 
-  find(findUserDto: FindUserDto): Promise<User[]> {
+  find(findUserDto: FindUserDto): Promise<TUser[]> {
     return this.userRepository.find({
       where: [
         { username: Like(`%${findUserDto.query}`) },
@@ -39,7 +39,7 @@ export class UsersService {
     return user;
   }
 
-  async existUser(username: string, email: string): Promise<boolean> {
+  private async existUser(username: string, email: string): Promise<boolean> {
     const existUsername = await this.userRepository.findOne({
       where: { username },
     });

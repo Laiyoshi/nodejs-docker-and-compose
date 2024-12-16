@@ -37,7 +37,7 @@ export class WishesService {
     });
   }
 
-  findOne(id: number): Promise<Wish> {
+  async findOne(id: number): Promise<Wish> {
     const wish = this.wishRepository.findOne({
       where: { id },
       relations: ['owner', 'offers', 'offers.user'],

@@ -18,7 +18,7 @@ import { Wish } from './entities/wish.entity';
 @Controller('wishes')
 export class WishesController {
   constructor(private readonly wishesService: WishesService) {}
-
+  
   @UseGuards(JwtAuthGuard)
   @Post()
   create(
